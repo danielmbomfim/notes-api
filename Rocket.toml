@@ -1,7 +1,7 @@
-[development]
+[debug]
 address = "localhost"
 
-[production]
+[release]
 address = "0.0.0.0"
 
 [global]
