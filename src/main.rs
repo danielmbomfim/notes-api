@@ -160,8 +160,13 @@ fn refresh(headers: RequestHeaders) -> Result<Json<RefreshData>, Custom<&str>> {
     Ok(Json(RefreshData { token }))
 }
 
+#[get("/health")]
+fn health() -> &'static str {
+    "ok"
+}
+
 #[launch]
 fn rocket() -> _ {
     dotenv().ok();
-    rocket::build().mount("/", routes![authenticate, refresh])
+    rocket::build().mount("/", routes![authenticate, refresh, health])
 }
